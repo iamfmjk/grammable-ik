@@ -1,1 +1,5 @@
 <h1>Index<h1>
+<% @grams.each do |gram| %>
+  <h3><%= link_to gram.message, gram_path(gram) %></h3>
+
+<% end %>
