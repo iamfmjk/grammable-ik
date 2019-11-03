@@ -1,5 +1,7 @@
 <h1>Index<h1>
 <% @grams.each do |gram| %>
-  <h3><%= link_to gram.message, gram_path(gram) %></h3>
-
+  <div>
+    <p><%= link_to gram.message, gram_path(gram) %></p>
+    <%= image_tag gram.picture.to_s %>
+  </div>
 <% end %>
