@@ -34,8 +34,10 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
+  include ActionDispatch::TestProcess
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include FactoryBot::Syntax::Methods
+
 
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
