@@ -21,17 +21,19 @@
       <br class="clear-fix" />
     </div>
     <div class="card-body">
-      <h3>Comments</h3>
-      <% gram.comments.each do |comment| %>
-        <div class="comment my-2">
-          <span class="comment_handle">
-            <%= comment.user.email %>
-          </span>
-          <%= comment.message %>
-        </div>
+      <% if gram.comments.present? %>
+        <h3>Comments</h3>
+        <% gram.comments.each do |comment| %>
+          <div class="comment my-2">
+            <span class="comment_handle">
+              <%= comment.user.email %>
+            </span>
+            <%= comment.message %>
+          </div>
+          <br />
+          <hr />
+        <% end %>
       <% end %>
-      <br />
-      <hr />
       <h4>Add a comment</h4>
       <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
         <%= f.input :message %>
