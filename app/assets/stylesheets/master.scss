@@ -61,7 +61,31 @@ input {
   background-color: #1b4665;
   width: 100%;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
   margin-top: 10px;
+  padding: 8px;
+}
+
+.my-btn:hover {
+  color: #fff;
+  background-color: #205377;
+}
+
+.gram-actions {
+  // background-color: #eee;
+}
+
+.card a {
+  color: #205377;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.comment_handle {
+  color: #125688;
+  font-weight: 600;
+  font-size: 16px;
 }

@@ -8,14 +8,35 @@
       <%= image_tag gram.picture.to_s, class: 'img-fluid d-block mx-auto' %>
     </div>
     <div class="card-body">
-      <p>
-        <%= gram.message %>
-      </p>
+      <%= gram.message %>
     </div>
-    <div class="card-footer">
-      <span class="float-right">
-        <%= link_to 'Link', gram_path(gram) %>
-      </span>
+    <div class="card-body border-bottom py-1">
+      <div class="gram-actions float-right">
+        <%= link_to 'Link', gram_path(gram), class: "card-link" %>
+        <% if current_user && current_user == gram.user %>
+          <%= link_to 'Edit', edit_gram_path(gram), class: "card-link" %>
+          <%= link_to 'Destroy', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'}, class: "card-link text-danger" %>
+        <% end %>
+      </div>
+      <br class="clear-fix" />
+    </div>
+    <div class="card-body">
+      <h3>Comments</h3>
+      <% gram.comments.each do |comment| %>
+        <div class="comment my-2">
+          <span class="comment_handle">
+            <%= comment.user.email %>
+          </span>
+          <%= comment.message %>
+        </div>
+      <% end %>
+      <br />
+      <hr />
+      <h4>Add a comment</h4>
+      <%= simple_form_for Comment.new, url: gram_comments_path(gram) do |f| %>
+        <%= f.input :message %>
+        <%= f.submit 'Add Comment', class: 'my-btn' %>
+      <% end %>
     </div>
   </div>
   <% end %>

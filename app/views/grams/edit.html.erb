@@ -1,5 +1,10 @@
-<h1>Edit me!</h1>
-<%= simple_form_for @gram do |f| %>
-  <%= f.input :message %>
-  <%= f.submit %>
-<% end %>
+<div class="col-10 col-sm-8 col-md-6 mx-auto card">
+  <h3 class="card-header">Edit the gram</h3>
+  <div class="card-body">
+    <%= simple_form_for @gram do |f| %>
+      <%= f.input :message %>
+      <%= f.input :picture %>
+      <%= f.submit 'Update', class: "my-btn" %>
+    <% end %>
+    </div>
+    </div>

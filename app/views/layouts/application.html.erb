@@ -12,35 +12,36 @@
   <body>
     <div class="top-nav pt-3">
       <div class="col-10 col-sm-8 mx-auto">
-      <div class="row mx-auto">
-        <div class="col-sm brand float-left">
-          <%= link_to 'Grammable', root_path %>
-          <span>by iuliia</span>
-        </div>
-        <div class="col-md-8 add mt-md-2">
-          <div class="row mx-auto mt-md-1 float-right">
-            <div class="col-sm-auto">
-              <% if current_user %>
-              <span>Welcome, <%= current_user.email %>.</span>
-            </div>
-            <div class="col-sm-auto">
-              <span><%= link_to "New Post", new_gram_path %></span>
-              &nbsp; | &nbsp;
-              <span><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-              </span>
+        <div class="row mx-auto">
+          <div class="col-sm brand float-left">
+            <%= link_to 'Grammable', root_path %>
+            <span>by iuliia</span>
+          </div>
+          <div class="col-md-8 add mt-md-2">
+            <% if current_user %>
+              <div class="row mx-auto mt-md-1 float-right">
+                <div class="col-sm-auto">
+                  <span>Welcome, <%= current_user.email %>.</span>
+                </div>
+                <div class="col-sm-auto">
+                  <span><%= link_to "New Post", new_gram_path %></span>
+                &nbsp; | &nbsp;
+                  <span><%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                  </span>
+                </div>
               </div>
-          <% else %>
-            <%= link_to "Sign In", new_user_session_path %>
-            <%= link_to "Sign Up", new_user_registration_path %>
-          <% end %>
+              <% else %>
+                <div class="col-sm-auto float-right">
+                  <span><%= link_to "Sign In", new_user_session_path %></span>
+                &nbsp; | &nbsp;
+                  <span><%= link_to "Sign Up", new_user_registration_path %></span>
+                </div>
+              <% end %>
+          </div>
         </div>
       </div>
+    </div>
       <br class="clear-fix" />
-    </div>
-    </div>
-    <br />
-
-
    <% if alert.present? %>
      <p class="alert"><%= alert %></p>
    <% end %>
