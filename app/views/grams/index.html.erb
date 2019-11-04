@@ -12,7 +12,6 @@
     </div>
     <div class="card-body border-bottom py-1">
       <div class="gram-actions float-right">
-        <%= link_to 'Link', gram_path(gram), class: "card-link" %>
         <% if current_user && current_user == gram.user %>
           <%= link_to 'Edit', edit_gram_path(gram), class: "card-link" %>
           <%= link_to 'Destroy', gram_path(gram), method: :delete, data: {confirm: 'Are you sure?'}, class: "card-link text-danger" %>
