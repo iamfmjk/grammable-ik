@@ -9,3 +9,5 @@ Photo feed web application built in TDD style as a part of Berkeley Coding Bootc
 - Browse images
 - Post comments
 - Post images with description
+
+![app screenshot](https://github.com/iamfmjk/grammable-ik/blob/master/grammable-ik.png)
